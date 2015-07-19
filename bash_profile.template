@@ -1,0 +1,101 @@
+PROJECT_PATH='##PROJECT_PATH##'
+
+# ---------------------------------------------------------------------------
+# General
+# ---------------------------------------------------------------------------
+
+# append history
+shopt -s histappend
+export HISTCONTROL=ignoreboth:erasedups
+
+# enable hostname completion after @ char
+shopt -s hostcomplete
+
+# ignore files in cd command
+complete -d cd
+
+# ---------------------------------------------------------------------------
+# Prompt
+# ---------------------------------------------------------------------------
+
+export PS1='\[\033[91m\]$RUBY_VERSION\[\033[m\] \[\033[36m\]\W\[\033[m\]\[\033[31m\]$(__git_ps1 " %s")\[\033[m\] '
+
+# ---------------------------------------------------------------------------
+# Colors
+# ---------------------------------------------------------------------------
+
+# colors for `ls` command in OSX
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export CLICOLOR=1
+
+# colors for `tree` command
+export LS_COLORS='di=36:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31'
+
+# ---------------------------------------------------------------------------
+# Less
+# ---------------------------------------------------------------------------
+
+# less default options
+export LESS="--quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
+
+# ---------------------------------------------------------------------------
+# Homebrew
+# ---------------------------------------------------------------------------
+
+# add homebrew sbin path
+export PATH=/usr/local/sbin:$PATH
+
+# brew completion
+source /usr/local/Library/Contributions/brew_bash_completion.sh
+
+# bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# ---------------------------------------------------------------------------
+# GIT
+# ---------------------------------------------------------------------------
+
+# show git state in prompt
+export GIT_PS1_SHOWDIRTYSTATE='true'
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+
+# git completion
+source /usr/local/etc/bash_completion.d/git-completion.bash
+
+# ---------------------------------------------------------------------------
+# CH Ruby
+# ---------------------------------------------------------------------------
+
+# chruby
+source /usr/local/Cellar/chruby/0.3.8/share/chruby/chruby.sh
+chruby ruby-1.8.7-p374
+
+# ---------------------------------------------------------------------------
+# Node
+# ---------------------------------------------------------------------------
+
+# Node version manager
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# ---------------------------------------------------------------------------
+# Custom submodules
+# ---------------------------------------------------------------------------
+
+source "${PROJECT_PATH}/mysql_bash_completion/mysql_bash_completion.sh"
+
+# ---------------------------------------------------------------------------
+# Aliases
+# ---------------------------------------------------------------------------
+
+alias bake='bundle exec rake'
+
+# ---------------------------------------------------------------------------
+# Custom configuration
+# ---------------------------------------------------------------------------
+
+if [ -f ~/.bash_custom ]; then
+  source ~/.bash_custom
+fi
