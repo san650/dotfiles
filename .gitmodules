@@ -1,3 +1,6 @@
 [submodule "vim"]
 	path = vim
 	url = https://github.com/san650/vim650
+[submodule "mysql_bash_completion"]
+	path = mysql_bash_completion
+	url = https://github.com/san650/mysql_bash_completion
