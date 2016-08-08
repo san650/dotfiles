@@ -6,7 +6,7 @@ all: build
 build: submodule .bash_profile
 
 # Install dot files
-install: build install_vim
+install: build ~/.rdebugrc
 	ln -fs $(ROOT)/.bash_profile ~/.bash_profile
 
 # Install vim configuration
@@ -20,5 +20,10 @@ install_vim:
 # Clone and initialize git submodules
 submodule:
 	git submodule update --init
+
+~/.rdebugrc: rdebugrc
+	ln -s `pwd`/rdebugrc ~/.rdebugrc
+
+# FIXME rdebugrc gemrc
 
 .PHONY: install_vim submodule
