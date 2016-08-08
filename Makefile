@@ -8,6 +8,7 @@ build: submodule .bash_profile
 # Install dot files
 install: build ~/.rdebugrc
 	ln -fs $(ROOT)/.bash_profile ~/.bash_profile
+	ln -fs $(ROOT)/tmux.conf ~/.tmux.conf
 
 # Install vim configuration
 install_vim:
