@@ -18,6 +18,10 @@ $ make install
 * [VIM](https://github.com/san650/vim650)
 * `bash_profile` Bash configuration
 
+## iTerm configurations
+
+* Color scheme https://github.com/sindresorhus/iterm2-snazzy
+
 ## License
 
 dotfiles is released under the MIT license:
