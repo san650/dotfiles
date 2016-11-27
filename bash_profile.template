@@ -69,16 +69,16 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # ---------------------------------------------------------------------------
 
 # chruby
-source /usr/local/Cellar/chruby/0.3.8/share/chruby/chruby.sh
-chruby ruby-1.8.7-p374
+source /usr/local/Cellar/chruby/0.3.9/share/chruby/chruby.sh
+chruby 1.8.7-p374
 
 # ---------------------------------------------------------------------------
 # Node
 # ---------------------------------------------------------------------------
 
 # Node version manager
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+# export NVM_DIR=~/.nvm
+# source $(brew --prefix nvm)/nvm.sh
 
 # ---------------------------------------------------------------------------
 # Custom submodules
